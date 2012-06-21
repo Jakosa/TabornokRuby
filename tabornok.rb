@@ -5,10 +5,10 @@ require "socket"
 class Tabornok
 
 	def initialize server, port, nick
-		puts "Tabornok Copyright (C) 2012 Jackneill"
-    	puts "This program comes with ABSOLUTELY NO WARRANTY; for details type see <http://www.gnu.org/licenses/>."
-    	puts "This is free software, and you are welcome to redistribute it"
-    	puts "under certain conditions; type `show c' for details."
+		puts	"Tabornok Copyright (C) 2012 Jackneill"
+    	puts	"This program comes with ABSOLUTELY NO WARRANTY; for details type see http://www.gnu.org/licenses/."
+    	puts	"This is free software, and you are welcome to redistribute it"
+    	puts	"under certain conditions; type `show c' for details."
 
 		@server = server
 		@port	= port
