@@ -4,24 +4,28 @@ require "socket"
 
 class Tabornok
 
-	def initialize
-		connect "irc.rizon.net", 6667, "Tabornok"
+	def initialize server, port, nick
+		@server = server
+		@port	= port
+		@nick 	= nick
 	end
 
-	def connect(server, port, nick)
-		@tcpsocket = TCPSocket.open(server, port)
-
+	def connect
+		@tcpsocket = TCPSocket.open @server, @port
+		
+		auth
 		read
 	end
 
-	def auth(nick)
-		sendIrcMsg "NICK Tabornok"
+	def auth
+		sendIrcMsg "NICK " + @nick
     	sendIrcMsg "USER Tabornok 0 * Tabornok"
     	sendIrcMsg "JOIN #hun_bot"
     end
 
     def sendIrcMsg s
     	@tcpsocket.puts s
+    	puts "[*] " + s
     end
 
     def read
@@ -31,7 +35,8 @@ class Tabornok
     		puts data
     	end
     end
-    
+
 end
 
-tabornok = Tabornok.new
+tabornok = Tabornok.new "irc.rizon.net", 6667, "Tabornok"
+tabornok.connect
