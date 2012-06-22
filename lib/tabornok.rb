@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require "socket"
+require "colorize"
 
 class Tabornok
 
@@ -28,9 +29,15 @@ class Tabornok
     	sendIrcMsg "JOIN #hun_bot"
     end
 
-    def sendIrcMsg s
-    	@tcpsocket.puts s
-    	puts "[*][*][*] " + s
+    def sendIrcMsg msg
+    	@tcpsocket.puts msg
+
+        log msg
+    end
+
+    def log msg
+        puts "[*][*][*] ".yellow
+        puts msg
     end
 
     def read
