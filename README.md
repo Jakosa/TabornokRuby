@@ -9,4 +9,5 @@ You can start the bot just run this command on all platform: `ruby tabornok.rb`
 
 ### Pre-Requirements
 
-Ruby 1.9.3
+- Ruby 1.9.3
+- Colorize ruby library, install it by: `sudo gem install colorize`
