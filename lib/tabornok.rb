@@ -81,7 +81,7 @@ class Tabornok
             cmd = gets.chomp
             #cmd.inspect
 
-            if cmd[0..2] == "say"
+            if cmd[0, 2] == "say"
                 puts cmd
                 sendMsg "#hun_bot", cmd
             end
