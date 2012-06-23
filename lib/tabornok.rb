@@ -37,7 +37,7 @@ class Tabornok
     end
 
     def sendMsg chan, msg
-        @tcpsocket.puts "PRIVMSG #{chan} #{msg}"
+        @tcpsocket.puts "PRIVMSG #{chan} :#{msg}"
     end
 
     def log lvl, msg
