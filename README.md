@@ -5,7 +5,7 @@ Tabornok IRC Bot and Framework written in Ruby
 
 ### Run
 
-You can start the bot just nabigating into `lib` folder and run this command on all platform: `ruby tabornok.rb`
+You can start the bot just navigating into `lib` folder and run this command on all platform: `ruby tabornok.rb`
 
 ### Pre-Requirements
 
