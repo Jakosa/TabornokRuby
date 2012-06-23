@@ -6,10 +6,11 @@ require "colorize"
 class Tabornok
 
 	def initialize server, port, nick
-		puts "Tabornok Copyright (C) 2012 Jackneill"
-    	puts "This program comes with ABSOLUTELY NO WARRANTY; for details type see <http://www.gnu.org/licenses/>."
-    	puts "This is free software, and you are welcome to redistribute it"
-    	puts "under certain conditions; for details type see <http://www.gnu.org/licenses/>."
+        puts "Tabornok IRC Bot and Framework".yellow
+		puts "Copyright (C) 2012 Jackneill".yellow
+    	puts "This program comes with ABSOLUTELY NO WARRANTY; for details type see <http://www.gnu.org/licenses/>.".yellow
+    	puts "This is free software, and you are welcome to redistribute it".yellow
+    	puts "under certain conditions; for details type see <http://www.gnu.org/licenses/>.".yellow
 
 		@server = server
 		@port	= port
@@ -32,20 +33,34 @@ class Tabornok
     def sendIrcMsg msg
     	@tcpsocket.puts msg
 
-        log msg
+        log 4, msg
     end
 
-    def log msg
-        puts "[*][*][*] ".yellow
-        puts msg
+    def log lvl, msg
+        case lvl
+        when 1
+            puts "[1] ".red + msg
+        when 2
+            puts "[2] ".yellow + msg
+        when 3
+            puts "[3] ".blue
+        when 4
+            puts "[4] ".green + msg
+        when 5
+            puts "[5] " + msg
+        else
+            puts "[ERROR] " + msg
+        end
     end
 
     def read
     	until @tcpsocket.eof? do
-    		data = @tcpsocket.gets
-
-    		puts data
+    		parse @tcpsocket.gets
     	end
+    end
+
+    def parse data
+        puts data
     end
 
 end
