@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require "socket"
+require "parser"
 
 class Irc
 
@@ -9,8 +10,10 @@ class Irc
 	end
 
 	def read_irc
+		parser = Parser.new
+
     	until @tcpsocket.eof? do
-    		parse @tcpsocket.gets
+    		parser.parse @tcpsocket.gets
     	end
     end
 
