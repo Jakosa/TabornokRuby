@@ -8,6 +8,12 @@ class Irc
 		@tcpsocket = TCPSocket.open server, port
 	end
 
+	def read_irc
+    	until @tcpsocket.eof? do
+    		parse @tcpsocket.gets
+    	end
+    end
+
 	def auth nick
         sendServiceMsg "NICK #{nick}"
         sendServiceMsg "USER #{nick} 0 * #{nick}"
