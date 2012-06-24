@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require "socket"
+require "tabornok/connection"
 require "colorize"
 require "thread"
 
@@ -27,16 +27,16 @@ class Tabornok
 	end
 
 	def auth
-        sendIrcMsg "NICK #{@nick}"
-        sendIrcMsg "USER Tabornok 0 * Tabornok"
-        sendIrcMsg "JOIN #hun_bot"
+        sendServiceMsg "NICK #{@nick}"
+        sendServiceMsg "USER Tabornok 0 * Tabornok"
+        sendServiceMsg "JOIN #hun_bot"
     end
 
-    def sendIrcMsg msg
+    def sendServiceMsg msg
     	@tcpsocket.puts msg
     end
 
-    def sendMsg chan, msg
+    def sendIrcMsg chan, msg
         @tcpsocket.puts "PRIVMSG #{chan} :#{msg}"
     end
 
@@ -68,6 +68,8 @@ class Tabornok
         puts data
 
         case data[1]
+        when "PING"
+            sendServiceMsg "PING #{data[2]}"
         when "NOTICE"
         when "PRIVMSG"
             case data[2]
@@ -81,9 +83,11 @@ class Tabornok
             cmd = gets.chomp
             #cmd.inspect
 
+            puts cmd
+
             if cmd[0, 2] == "say"
                 puts cmd
-                sendMsg "#hun_bot", cmd
+                sendIrcMsg "#hun_bot", cmd
             end
         end
     end
