@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+require "socket"
+
 class Irc
 
 	def connect server, port
@@ -7,15 +9,15 @@ class Irc
 	end
 
 	def auth nick
-        sendIrcMsg "NICK #{nick}"
+        sendServiceMsg "NICK #{nick}"
         sendIrcMsg "USER #{nick} 0 * #{nick}"
     end
 
-    def sendIrcMsg msg
+    def sendServiceMsg msg
     	@tcpsocket.puts msg
     end
 
-    def sendMsg chan, msg
+    def sendIrcMsg chan, msg
         @tcpsocket.puts "PRIVMSG #{chan} :#{msg}"
     end
 

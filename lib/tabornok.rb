@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require_relative "tabornok/irc"
+require_relative "tabornok/parser"
 require "colorize"
 require "thread"
 
