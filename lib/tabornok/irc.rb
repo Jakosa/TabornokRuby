@@ -10,7 +10,7 @@ class Irc
 
 	def auth nick
         sendServiceMsg "NICK #{nick}"
-        sendIrcMsg "USER #{nick} 0 * #{nick}"
+        sendServiceMsg "USER #{nick} 0 * #{nick}"
     end
 
     def sendServiceMsg msg
