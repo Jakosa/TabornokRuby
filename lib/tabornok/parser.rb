@@ -1,12 +1,15 @@
 #!/usr/bin/env ruby
 
 require_relative "irc"
+require_relative "logger"
 
 class Parser
 
-	def parse *data
+	def parse data
+        @logger = Logger.new
+
         #data.inspect
-        puts data
+        @logger.service data.to_s
 
         case data[1]
         when "NOTICE"
