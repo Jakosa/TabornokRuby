@@ -8,8 +8,6 @@ class Parser
         #data.inspect
         puts data
 
-        puts "Parse is in action".red
-
         case data[1]
         when "NOTICE"
             case data[2]

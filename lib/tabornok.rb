@@ -1,18 +1,19 @@
 #!/usr/bin/env ruby
 
 require_relative "tabornok/irc"
-require "colorize"
-require "win32console"
+require_relative "tabornok/logger"
 require "thread"
 
 class Tabornok
 
+    @logger = Logger.new
+
     def initialize
-        puts "Tabornok IRC Bot and Framework".yellow
-        puts "Copyright (C) 2012 Jackneill".yellow
-        puts "This program comes with ABSOLUTELY NO WARRANTY; for details type see <http://www.gnu.org/licenses/>.".yellow
-        puts "This is free software, and you are welcome to redistribute it".yellow
-        puts "under certain conditions; for details type see <http://www.gnu.org/licenses/>.".yellow
+        puts "Tabornok IRC Bot and Framework"
+        puts "Copyright (C) 2012 Jackneill"
+        puts "This program comes with ABSOLUTELY NO WARRANTY; for details type see <http://www.gnu.org/licenses/>."
+        puts "This is free software, and you are welcome to redistribute it"
+        puts "under certain conditions; for details type see <http://www.gnu.org/licenses/>."
 
         irc = Irc.new
         irc.connect "irc.rizon.net", 6667
