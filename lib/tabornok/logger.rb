@@ -23,4 +23,8 @@ class Logger
         puts msg
     end
 
+    def service msg
+        puts "[SERVICE] ".white + msg
+    end
+
 end
