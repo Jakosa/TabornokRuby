@@ -11,6 +11,7 @@ class Utils
 			return "linux"
 		else
 			return "unknown"
+		end
 	end
 
 end
