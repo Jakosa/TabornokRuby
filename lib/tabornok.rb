@@ -21,6 +21,9 @@ class Tabornok
 
         console = Console.new
         thread_read_console = Thread.new console.read_console
+
+        irc.joinchan "#hun_bot"
+        irc.joinchan "#Tabornok"
     end
 
 end
