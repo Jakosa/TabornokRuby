@@ -1,13 +1,13 @@
 #!/usr/bin/env ruby
 
+require "colorize"
+
 require_relative "utils"
 utils = Utils.new
 
-if check_os == "win"
+if utils.check_os == "win"
     require "win32console"
 end
-
-require "colorize"
 
 class Logger
 
