@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require "socket"
-require "parser"
+require_relative "parser"
 
 class Irc
 
@@ -20,6 +20,14 @@ class Irc
 	def auth nick
         sendServiceMsg "NICK #{nick}"
         sendServiceMsg "USER #{nick} 0 * #{nick}"
+    end
+
+    def joinchan chan
+        if chan[0] != "#"
+            chan.insert(0, '#')
+        end
+        
+        sendServiceMsg "JOIN #{chan}"
     end
 
     def sendServiceMsg msg

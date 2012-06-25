@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require "irc"
+require "tabornok/irc"
 
 class Console
 
