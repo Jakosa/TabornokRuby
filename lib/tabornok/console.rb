@@ -4,7 +4,9 @@ require "tabornok/irc"
 
 class Console
 
-	def read
+	def read_console
+        puts "[C] Console read Thread initialized".red
+
         while true
             cmd = gets.chomp
             #cmd.inspect
