@@ -17,13 +17,13 @@ class Tabornok
         irc.connect "irc.rizon.net", 6667
         irc.auth "Tabornok"
 
+        irc.joinchan "#hun_bot"
+        irc.joinchan "#Tabornok"
+
         thread_read_irc = Thread.new irc.read_irc
 
         console = Console.new
         thread_read_console = Thread.new console.read_console
-
-        irc.joinchan "#hun_bot"
-        irc.joinchan "#Tabornok"
     end
 
 end
