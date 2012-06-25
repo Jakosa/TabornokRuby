@@ -1,11 +1,12 @@
 #!/usr/bin/env ruby
 
 require "tabornok/irc"
+require "tabornok/console"
 
 class Console
 
 	def read_console
-        puts "[C] Console read Thread initialized".red
+        @logger = Logger.new
 
         while true
             cmd = gets.chomp
