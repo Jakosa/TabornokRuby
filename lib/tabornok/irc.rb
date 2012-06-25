@@ -13,7 +13,7 @@ class Irc
 		parser = Parser.new
 
     	until @tcpsocket.eof? do
-    		parser.parse @tcpsocket.gets
+    		parser.parse @tcpsocket.gets.chomp
     	end
     end
 
@@ -22,11 +22,11 @@ class Irc
         sendServiceMsg "USER #{nick} 0 * #{nick}"
     end
 
-    def joinchan chan
+    def joinchan chan, pass = nil
         if chan[0] != "#"
             chan.insert(0, '#')
         end
-        
+
         sendServiceMsg "JOIN #{chan}"
     end
 
