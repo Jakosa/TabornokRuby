@@ -11,12 +11,16 @@ end
 
 class Logger
 
-	def Message msg
-        puts msg
+	def message msg
+        puts "[M] ".white + msg
     end
 
-    def Custom msg, clr, bg
+    def debug msg
+        puts "[D] ".blue + msg
+    end
 
+    def custom msg, clr, bg
+        puts msg
     end
 
 end
