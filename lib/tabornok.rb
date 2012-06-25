@@ -2,6 +2,7 @@
 
 require_relative "tabornok/irc"
 require "colorize"
+require "win32console"
 require "thread"
 
 class Tabornok

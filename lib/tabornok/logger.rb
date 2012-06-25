@@ -1,5 +1,8 @@
 #!/usr/bin/env ruby
 
+require "win32console"
+require "colorize"
+
 class Logger
 
 	def log lvl, msg
